@@ -26,7 +26,22 @@ func P56() {
 	}
 
 	var clickRegistered sync.WaitGroup
-	clickRegistered.Add(3)
+	clickRegistered.Add(6)
+	subscribe(button.Clicked, func() {
+		fmt.Println("Maximizing window.")
+		clickRegistered.Done()
+	})
+
+	subscribe(button.Clicked, func() {
+		fmt.Println("Displaying.")
+		clickRegistered.Done()
+	})
+
+	subscribe(button.Clicked, func() {
+		fmt.Println("Mouse clicked.")
+		clickRegistered.Done()
+	})
+
 	subscribe(button.Clicked, func() {
 		fmt.Println("Maximizing window.")
 		clickRegistered.Done()
@@ -43,25 +58,7 @@ func P56() {
 	})
 
 	button.Clicked.Broadcast()
-	clickRegistered.Wait()
 
-	clickRegistered.Add(3)
-	subscribe(button.Clicked, func() {
-		fmt.Println("Maximizing window.")
-		clickRegistered.Done()
-	})
-
-	subscribe(button.Clicked, func() {
-		fmt.Println("Displaying.")
-		clickRegistered.Done()
-	})
-
-	subscribe(button.Clicked, func() {
-		fmt.Println("Mouse clicked.")
-		clickRegistered.Done()
-	})
-
-	button.Clicked.Broadcast()
 	clickRegistered.Wait()
 
 }
