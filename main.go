@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	concurrency.P59()
+	concurrency.P72()
 }
