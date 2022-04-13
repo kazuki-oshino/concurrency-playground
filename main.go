@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	concurrency.P123Tee()
+	concurrency.P124Bridge()
 }
