@@ -10,7 +10,6 @@ func generator(done <-chan interface{}, integers ...int) <-chan int {
 	go func() {
 		defer close(intStream)
 		for _, i := range integers {
-			time.Sleep(1 * time.Second)
 			select {
 			case <-done:
 				return
