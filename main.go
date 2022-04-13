@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	concurrency.P72()
+	concurrency.P106Pipeline()
 }
