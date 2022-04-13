@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	concurrency.P111Generator()
+	concurrency.P119FanOutFanIn()
 }
