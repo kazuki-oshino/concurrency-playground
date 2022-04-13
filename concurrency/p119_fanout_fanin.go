@@ -26,11 +26,11 @@ func longTime(done <-chan interface{}, intStream <-chan int) <-chan interface{} 
 	go func() {
 		defer close(lStream)
 		for i := range intStream {
+			time.Sleep(2 * time.Second)
 			select {
 			case <-done:
 				return
 			case lStream <- i:
-				time.Sleep(2 * time.Second)
 			}
 		}
 	}()
