@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	concurrency.P122OrDone()
+	concurrency.P123Tee()
 }
